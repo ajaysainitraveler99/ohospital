@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shiv Hospital - Advanced Healthcare Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #005b8e;
+      --secondary-color: #00a0e1;
+      --accent-color: #ff6b6b;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --text-color: #495057;
+      --white: #ffffff;
+      --transition: all 0.3s ease;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .logo-text p {
+      font-size: 0.8rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    /* Navigation */
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: var(--transition);
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 0;
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 91, 142, 0.8), rgba(0, 91, 142, 0.8)), 
+                  url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease 0.3s forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid var(--accent-color);
+      animation: fadeInUp 1s ease 0.6s forwards;
+      opacity: 0;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary-color);
+    }
+
+    /* Section Common Styles */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 1rem;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title p {
+      color: var(--text-color);
+      max-width: 700px;
+      margin: 0.5rem auto 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Facilities Section */
+    .facilities {
+      background-color: var(--white);
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .facility-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .facility-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .facility-icon {
+      font-size: 3rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    .facility-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    /* Doctors Section */
+    .doctors {
+      background-color: #f5f7fa;
+    }
+
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .doctor-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .doctor-img {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .doctor-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .doctor-card:hover .doctor-img img {
+      transform: scale(1.05);
+    }
+
+    .doctor-info {
+      padding: 1.5rem;
+    }
+
+    .doctor-info h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .doctor-info p {
+      color: var(--text-color);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .doctor-specialty {
+      display: inline-block;
+      background: var(--secondary-color);
+      color: var(--white);
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 5rem;
+      color: rgba(0, 160, 225, 0.1);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      line-height: 1;
+    }
+
+    .testimonial-text {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: var(--primary-color);
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .rating {
+      color: #ffc107;
+      margin-top: 0.3rem;
+    }
+
+    /* Appointment Section */
+    .appointment {
+      background: linear-gradient(rgba(0, 91, 142, 0.9), rgba(0, 91, 142, 0.9)), 
+                  url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .appointment .section-title h2,
+    .appointment .section-title p {
+      color: var(--white);
+    }
+
+    .appointment-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: var(--border-radius);
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-control:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent-color);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-submit:hover {
+      background: #ff5252;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 82, 82, 0.3);
+    }
+
+    /* Blog Section */
+    .blog {
+      background-color: #f5f7fa;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .blog-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover .blog-img img {
+      transform: scale(1.05);
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-date {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .blog-content p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--secondary-color);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .read-more i {
+      margin-left: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .read-more:hover {
+      color: var(--accent-color);
+    }
+
+    .read-more:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: var(--white);
+      padding: 5rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-color);
+      bottom: 0;
+      left: 0;
+    }
+
+    .footer-col p {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      opacity: 0.8;
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--accent-color);
+      transform: translateX(5px);
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .contact-info i {
+      margin-right: 1rem;
+      color: var(--accent-color);
+    }
+
+    .social-links-footer {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links-footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-links-footer a:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--accent-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--primary-color);
+        transition: var(--transition);
+        z-index: 999;
+      }
+
+      nav.active {
+        left: 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 2rem;
+      }
+
+      nav ul li {
+        margin: 1rem 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .btn {
+        display: block;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://via.placeholder.com/50x50" alt="Shiv Hospital Logo">
+        <div class="logo-text">
+          <h1>SHIV HOSPITAL</h1>
+          <p>Your Health, Our Priority</p>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Advanced Healthcare Solutions</h1>
+      <p>Trusted medical care for you and your family. Our team of experienced professionals is dedicated to providing the highest quality healthcare services with compassion and excellence.</p>
+      <a href="#appointment" class="btn">Book an Appointment</a>
+      <a href="#services" class="btn btn-outline">Our Services</a>
+    </div>
+  </section>
+
+  <!-- Facilities Section -->
+  <section class="section facilities" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Facilities</h2>
+        <p>We offer state-of-the-art medical facilities and comprehensive healthcare services to meet all your medical needs.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-ambulance"></i>
+          </div>
+          <h3>24/7 Emergency Care</h3>
+          <p>Immediate medical attention with our round-the-clock emergency services and ambulance facility.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-procedures"></i>
+          </div>
+          <h3>Advanced ICU</h3>
+          <p>State-of-the-art Intensive Care Unit with ventilator support and critical care specialists.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <h3>Diagnostic Lab</h3>
+          <p>Fully equipped diagnostic laboratory with advanced testing facilities for accurate results.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-baby"></i>
+          </div>
+          <h3>Maternity Care</h3>
+          <p>Comprehensive maternity services with modern labor rooms and neonatal care unit.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-x-ray"></i>
+          </div>
+          <h3>Imaging Center</h3>
+          <p>Advanced radiology department with CT scan, MRI, X-ray and ultrasound facilities.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fas fa-pills"></i>
+          </div>
+          <h3>Pharmacy</h3>
+          <p>24-hour pharmacy with all essential medicines and healthcare products available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Shiv Hospital</h2>
+        <p>Providing exceptional healthcare services since 2005 with a commitment to excellence and patient-centered care.</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded in 2005, Shiv Hospital has grown to become a trusted name in healthcare in Uttarakhand. Our mission is to provide affordable, high-quality medical care to all sections of society.</p>
+          <p>With a team of highly qualified doctors, nurses and support staff, we offer comprehensive healthcare services across multiple specialties. Our hospital is equipped with modern medical technology and follows international standards of patient care.</p>
+          <p>We believe in treating not just the illness, but the whole person - with compassion, respect and dedication to excellence in healthcare delivery.</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <h3>18+</h3>
+              <p>Years of Service</p>
+            </div>
+            <div class="stat-item">
+              <h3>50+</h3>
+              <p>Specialist Doctors</p>
+            </div>
+            <div class="stat-item">
+              <h3>100+</h3>
+              <p>Beds</p>
+            </div>
+            <div class="stat-item">
+              <h3>10,000+</h3>
+              <p>Happy Patients</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors Section -->
+  <section class="section doctors" id="doctors">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Specialist Doctors</h2>
+        <p>Meet our team of highly qualified and experienced medical professionals dedicated to your health and wellbeing.</p>
+      </div>
+      <div class="doctors-grid">
+        <div class="doctor-card">
+          <div class="doctor-img">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Dr. Sushant Sharma">
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Sushant Sharma</h3>
+            <span class="doctor-specialty">Internal Medicine</span>
+            <p>MBBS, MD (Internal Medicine) with 20+ years of experience in critical care and chronic disease management.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-img">
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Dr. Neha Verma">
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Neha Verma</h3>
+            <span class="doctor-specialty">Gynaecologist</span>
+            <p>MBBS, MS (Obstetrics & Gynaecology) specializing in high-risk pregnancies and laparoscopic surgeries.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-img">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="Dr. Rajeev Thakur">
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Rajeev Thakur</h3>
+            <span class="doctor-specialty">Orthopaedic Surgeon</span>
+            <p>MBBS, MS (Orthopaedics) with expertise in joint replacements, arthroscopy and trauma surgery.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-card">
+          <div class="doctor-img">
+            <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Dr. Anjali Mishra">
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Anjali Mishra</h3>
+            <span class="doctor-specialty">Paediatrician</span>
+            <p>MBBS, MD (Paediatrics) specializing in neonatal care and childhood developmental disorders.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#doctors" class="btn">View All Doctors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Patient Testimonials</h2>
+        <p>Hear what our patients have to say about their experiences at Shiv Hospital.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <p>Excellent facilities and very caring staff. Dr. Sharma's timely diagnosis and treatment saved me from a serious health complication. The nursing care was exceptional throughout my stay.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ravi Kumar">
+            </div>
+            <div class="author-info">
+              <h4>Ravi Kumar</h4>
+              <p>Heart Patient</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <p>Clean and well-equipped hospital with knowledgeable doctors. I delivered my baby here and the maternity ward staff made the experience comfortable and safe. Highly recommended!</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sunita Mehta">
+            </div>
+            <div class="author-info">
+              <h4>Sunita Mehta</h4>
+              <p>Maternity Patient</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <p>Timely treatment saved my father's life during a cardiac emergency. The ICU facilities are excellent and the doctors were available round the clock. Thank you Shiv Hospital team!</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-img">
+              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Amit Joshi">
+            </div>
+            <div class="author-info">
+              <h4>Amit Joshi</h4>
+              <p>Patient's Family</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Section -->
+  <section class="section appointment"
